@@ -48,9 +48,9 @@ func InitConfig() {
 	}
 	ConfigRes.Mysql = mysql
 
-	redisSection, err := Cfg.GetSection("mysql")
+	redisSection, err := Cfg.GetSection("redis")
 	if err != nil {
-		log.Fatal("Fail to load section 'server': ", err)
+		log.Fatal("Fail to load section 'redis': ", err)
 	}
 	redis := &models.RedisInI{
 		Addr: redisSection.Key("ADDR").MustString("localhost"),
