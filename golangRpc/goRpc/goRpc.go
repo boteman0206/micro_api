@@ -3,6 +3,7 @@ package goRpc
 import (
 	"fmt"
 	"log"
+	"micro_api/micro_proto"
 	"net/rpc"
 )
 
@@ -30,5 +31,22 @@ func RpcCallHello() {
 	}
 
 	fmt.Println("hello reply: ", reply)
+
+}
+
+func RpcCallHello02() {
+
+	client, err := rpc.Dial("tcp", "localhost:1234")
+	if err != nil {
+		log.Fatal("dialing:", err)
+	}
+
+	var reply string
+	err = client.Call(micro_proto.HelloServiceName+".Hello", "i am rose", &reply)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("RpcCallHello02 reply: ", reply)
 
 }
