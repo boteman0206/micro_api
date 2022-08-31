@@ -1,6 +1,6 @@
 package main
 
-import "micro_api/golangRpc/golangRpc"
+import "micro_api/golangRpc/golangRpcProto"
 
 func main() {
 
@@ -14,8 +14,11 @@ func main() {
 	//golangRpc.RpcCallHello03()
 
 	// 使用jsonrpc
-	golangRpc.RpcCallHello04()
+	//golangRpc.RpcCallHello04()
 
 	//golangRpc.RpcCallHello06()
+
+	//==================rpc+proto客户端调用============================
+	golangRpcProto.RpcCallHello07()
 
 }
