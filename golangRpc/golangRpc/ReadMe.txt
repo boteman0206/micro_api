@@ -1,0 +1,4 @@
+
+
+
+调用micro_product的golang自带的rpc的客户端
