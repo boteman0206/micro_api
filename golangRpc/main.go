@@ -14,6 +14,8 @@ func main() {
 	//goRpc.RpcCallHello03()
 
 	// 使用jsonrpc
-	goRpc.RpcCallHello04()
+	//goRpc.RpcCallHello04()
+
+	goRpc.RpcCallHello06()
 
 }
