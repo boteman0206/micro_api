@@ -5,16 +5,16 @@ import "micro_api/golangRpc/goRpc"
 func main() {
 
 	// 调用Hello的rpc方法
-	//goRpc.RpcCallHello()
+	//golangRpc.RpcCallHello()
 
 	// 调用Hello02的rpc方法
-	//goRpc.RpcCallHello02()
+	//golangRpc.RpcCallHello02()
 
 	// 调用RpcCallHello03
-	//goRpc.RpcCallHello03()
+	//golangRpc.RpcCallHello03()
 
 	// 使用jsonrpc
-	//goRpc.RpcCallHello04()
+	//golangRpc.RpcCallHello04()
 
 	goRpc.RpcCallHello06()
 
