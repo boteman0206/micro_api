@@ -19,6 +19,9 @@ func main() {
 	//golangRpc.RpcCallHello06()
 
 	//==================rpc+proto客户端调用============================
-	golangRpcProto.RpcCallHello07()
+	//golangRpcProto.RpcCallHello07()
+
+	//grpc的流调用
+	golangRpcProto.RpcCallHello08()
 
 }
