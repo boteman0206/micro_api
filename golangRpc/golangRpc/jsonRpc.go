@@ -1,4 +1,4 @@
-package goRpc
+package golangRpc
 
 import (
 	"encoding/json"
