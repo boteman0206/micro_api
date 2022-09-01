@@ -44,6 +44,10 @@ func main() {
 	//}
 
 	//==============goRpc的Tls调用===========================
+	//自签名证书调用
 	goRpcAdvance.RpcCallHello11()
+
+	//根证书签名测试
+	//goRpcAdvance.RpcCallHello12()
 
 }

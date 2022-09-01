@@ -11,9 +11,22 @@ import (
 
 /**
 在客户端基于服务器的证书和服务器名字就可以对服务器进行验证：
+
+这种方式，需要提前将服务器的证书告知客户端，这样客户端在连接服务器时才能进行对服务器证书认证
+在复杂的网络环境中，服务器证书的传输本身也是一个非常危险的问题。如果在中间某个环节，服务器证书被监听或替换那么对服务器的认证也将不再可靠。
+
+为了避免证书的传递过程中被篡改，可以通过一个安全可靠的根证书分别对服务器和客户端的证书进行签名。这样客户端或服务器在收到对方的证书后可以通过根证书进行验证证书的有效性。
+根证书的生成方式和自签名证书的生成方式类似：
+
+$ openssl genrsa -out ca.key 2048
+$ openssl req -new -x509 -days 3650 -subj "/C=GB/L=China/O=gobook/CN=github.com" -key ca.key -out ca.crt
+
+
 */
+
 func RpcCallHello11() {
 
+	// 使用的是和服务端一样的crt文件
 	serverCrt := `./golangRpc/goRpcAdvance/server.crt`
 
 	creds, err := credentials.NewClientTLSFromFile(serverCrt, "server.grpc.io")
