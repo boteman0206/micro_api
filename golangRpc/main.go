@@ -1,6 +1,9 @@
 package main
 
-import "micro_api/golangRpc/golangRpcProto"
+import (
+	"micro_api/golangRpc/golangRpcProto"
+	"time"
+)
 
 func main() {
 
@@ -25,6 +28,19 @@ func main() {
 	//golangRpcProto.RpcCallHello08()
 
 	// grpc的单向流调用
-	golangRpcProto.RpcCallHello09()
+	//golangRpcProto.RpcCallHello09()
+
+	// 发布-订阅模型使用
+
+	go func() {
+		golangRpcProto.SubscribeMsg()
+	}()
+
+	time.Sleep(10 * time.Second)
+	golangRpcProto.PublishMsg()
+
+	for true {
+
+	}
 
 }
