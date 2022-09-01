@@ -10,7 +10,8 @@ import (
 
 /**
 使用token认证的grpc的服务端
-
+type PerRPCCredentials interface
+要实现对每个 gRPC 方法进行认证，需要实现 grpc.PerRPCCredentials 接口：
 */
 
 type Authentication struct {
@@ -44,7 +45,7 @@ func RpcCallHello13() {
 	}
 	defer conn.Close()
 
-	client := hello.NewHelloServiceClient(conn)
+	client := hello.NewAuthServiceClient(conn)
 	reply, err := client.Hello(context.Background(), &hello.StringDto{Value: "token-hello"})
 	if err != nil {
 		log.Fatal(err)
