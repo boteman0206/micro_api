@@ -1,8 +1,8 @@
 package main
 
 import (
-	"micro_api/golangRpc/golangRpcProto"
-	"time"
+	"micro_api/golangRpc/goRpcAdvance"
+	//"micro_api/golangRpc/golangRpcProto"
 )
 
 func main() {
@@ -32,15 +32,18 @@ func main() {
 
 	// 发布-订阅模型使用
 
-	go func() {
-		golangRpcProto.SubscribeMsg()
-	}()
+	//go func() {
+	//	golangRpcProto.SubscribeMsg()
+	//}()
+	//
+	//time.Sleep(10 * time.Second)
+	//golangRpcProto.PublishMsg()
+	//
+	//for true {
+	//
+	//}
 
-	time.Sleep(10 * time.Second)
-	golangRpcProto.PublishMsg()
-
-	for true {
-
-	}
+	//==============goRpc的Tls调用===========================
+	goRpcAdvance.RpcCallHello11()
 
 }
