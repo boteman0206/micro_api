@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"io"
 	"log"
-	"micro_api/micro_proto/pc"
+	"micro_api/micro_proto/hello"
 	"time"
 )
 
@@ -19,7 +19,7 @@ func RpcCallHello08() {
 	}
 	defer conn.Close()
 
-	client := pc.NewHelloServiceClient(conn)
+	client := hello.NewHelloServiceClient(conn)
 
 	//客户端需要先调用 Channel 方法获取返回的流对象：
 	stream, err := client.Channel(context.Background())
@@ -31,7 +31,7 @@ func RpcCallHello08() {
 	// 首先是向服务端发送数据：
 	go func() {
 		for {
-			if err := stream.Send(&pc.StringDto{Value: "hi"}); err != nil {
+			if err := stream.Send(&hello.StringDto{Value: "hi"}); err != nil {
 				log.Fatal(err)
 			}
 			time.Sleep(2 * time.Second)

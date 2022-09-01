@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"io"
 	"log"
-	"micro_api/micro_proto/pc"
+	"micro_api/micro_proto/hello"
 )
 
 /**
@@ -22,10 +22,10 @@ func SubscribeMsg() {
 	}
 	defer conn.Close()
 
-	client := pc.NewPubsubServiceClient(conn)
+	client := hello.NewPubsubServiceClient(conn)
 
 	// 订阅golang开头的消息
-	streamGolang, err := client.Subscribe(context.Background(), &pc.StringDto{Value: "golang:"})
+	streamGolang, err := client.Subscribe(context.Background(), &hello.StringDto{Value: "golang:"})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,7 +45,7 @@ func SubscribeMsg() {
 	}()
 
 	// 订阅docker开头的消息
-	streamDocker, err := client.Subscribe(context.Background(), &pc.StringDto{Value: "docker:"})
+	streamDocker, err := client.Subscribe(context.Background(), &hello.StringDto{Value: "docker:"})
 	if err != nil {
 		log.Fatal(err)
 	}

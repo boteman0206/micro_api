@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"google.golang.org/grpc"
 	"log"
-	"micro_api/micro_proto/pc"
+	"micro_api/micro_proto/hello"
 )
 
 /**
@@ -23,9 +23,9 @@ func RpcCallHello07() {
 	defer conn.Close()
 
 	//然后 NewHelloServiceClient 函数基于已经建立的连接构造 HelloServiceClient 对象
-	client := pc.NewHelloServiceClient(conn)
+	client := hello.NewHelloServiceClient(conn)
 	// 返回的 client 其实是一个 HelloServiceClient 接口对象，通过接口定义的方法就可以调用服务端对应的 gRPC 服务提供的方法。
-	reply, err := client.Hello(context.Background(), &pc.StringDto{Value: "proto-hello"})
+	reply, err := client.Hello(context.Background(), &hello.StringDto{Value: "proto-hello"})
 	if err != nil {
 		log.Fatal(err)
 	}

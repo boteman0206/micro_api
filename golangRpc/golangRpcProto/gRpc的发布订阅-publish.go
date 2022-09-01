@@ -4,7 +4,7 @@ import (
 	"context"
 	"google.golang.org/grpc"
 	"log"
-	"micro_api/micro_proto/pc"
+	"micro_api/micro_proto/hello"
 )
 
 /**
@@ -17,16 +17,16 @@ func PublishMsg() {
 	}
 	defer conn.Close()
 
-	client := pc.NewPubsubServiceClient(conn)
+	client := hello.NewPubsubServiceClient(conn)
 
 	// 客户端发布golang：开头的消息
-	_, err = client.Publish(context.Background(), &pc.StringDto{Value: "golang: hello Go"})
+	_, err = client.Publish(context.Background(), &hello.StringDto{Value: "golang: hello Go"})
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// 客户端发布docker: 开头的消息
-	_, err = client.Publish(context.Background(), &pc.StringDto{Value: "docker: hello Docker"})
+	_, err = client.Publish(context.Background(), &hello.StringDto{Value: "docker: hello Docker"})
 	if err != nil {
 		log.Fatal(err)
 	}

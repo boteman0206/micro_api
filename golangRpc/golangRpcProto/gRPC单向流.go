@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"google.golang.org/grpc"
 	"log"
-	"micro_api/micro_proto/pc"
+	"micro_api/micro_proto/hello"
 )
 
 func RpcCallHello09() {
@@ -17,7 +17,7 @@ func RpcCallHello09() {
 	defer conn.Close()
 
 	// 建立gRPC连接
-	grpcClient := pc.NewHelloServiceClient(conn)
+	grpcClient := hello.NewHelloServiceClient(conn)
 	// 创建发送结构体
 	res, err := grpcClient.ChannelOneWay(context.Background())
 	if err != nil {
@@ -25,7 +25,7 @@ func RpcCallHello09() {
 	}
 	for i := 0; i < 5; i++ {
 		//通过 Send方法发送流信息
-		err = res.Send(&pc.StringDto{Value: "客户端流式"})
+		err = res.Send(&hello.StringDto{Value: "客户端流式"})
 		if err != nil {
 			return
 		}
