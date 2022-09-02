@@ -51,6 +51,9 @@ func main() {
 	//goRpcAdvance.RpcCallHello12()
 
 	// token认证的rpc
-	goRpcAdvance.RpcCallHello13()
+	//goRpcAdvance.RpcCallHello13()
+
+	//拦截器的使用
+	goRpcAdvance.RpcCallHello14()
 
 }
