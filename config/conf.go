@@ -12,6 +12,11 @@ var (
 	Cfg       *ini.File
 	IsDebug   bool
 	ConfigRes = models.Config{}
+
+	ClientInfo = make(map[string]models.ClientInfo, 0)
+
+	DcProduct = "dcProduct"
+	DcUser    = "dcUser"
 )
 
 func InitConfig() {
@@ -62,4 +67,26 @@ func InitConfig() {
 
 	fmt.Println("读取的配置文件: ", utils.JsonToString(ConfigRes))
 
+	//获取dc_product的id和端口
+	dcProductSection, err := Cfg.GetSection(DcProduct)
+	if err != nil {
+		log.Fatal("Fail to load section 'mysql': ", err)
+	}
+	dcProductInfo := models.ClientInfo{
+		Addr: dcProductSection.Key("ADDR").MustString("127.0.0.1"),
+		Port: dcProductSection.Key("PORT").MustString("8802"),
+	}
+
+	ClientInfo[DcProduct] = dcProductInfo
+
+	// 读取dc_user的ip和端口
+	dcUserSection, err := Cfg.GetSection(DcUser)
+	if err != nil {
+		log.Fatal("Fail to load section 'mysql': ", err)
+	}
+	userInfo := models.ClientInfo{
+		Addr: dcUserSection.Key("ADDR").MustString("127.0.0.1"),
+		Port: dcUserSection.Key("PORT").MustString("8803"),
+	}
+	ClientInfo[DcUser] = userInfo
 }

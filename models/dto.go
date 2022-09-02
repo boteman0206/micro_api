@@ -33,3 +33,8 @@ type RedisInI struct {
 	Db   int
 	Pwd  string
 }
+
+type ClientInfo struct {
+	Addr string
+	Port string
+}
