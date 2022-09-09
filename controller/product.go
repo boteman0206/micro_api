@@ -37,7 +37,7 @@ func GetProduct(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, res)
 	}
 
-	res.Data = product
+	res.Data = product.Data
 
 	return c.JSON(http.StatusOK, res)
 
