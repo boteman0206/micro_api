@@ -25,7 +25,7 @@ func GetProduct(c echo.Context) error {
 	}
 
 	url := GetDcProductUrl()
-	fmt.Println(url)
+	fmt.Println("获取的url： ", url)
 	//调用product的rpc方法
 	client := pc.GetDcProductGrpcClient(url)
 	dto := pc.GetProductDto{
