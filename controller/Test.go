@@ -1,26 +1,13 @@
 package controller
 
 import (
-	"bytes"
 	"fmt"
 	"github.com/labstack/echo/v4"
 	"log"
+	"micro_api/micro_common/utils"
 	"micro_api/models"
-	"micro_api/utils"
 	"net/http"
 )
-
-/**
-golang自带的log包使用：默认是打印时间+日志信息： 可以调整
-*/
-
-var NewLog *log.Logger
-var buf bytes.Buffer
-
-func init() {
-	// 自定义log输出到buffer也可以定义到文件
-	NewLog = log.New(&buf, "[info: ]", log.LstdFlags)
-}
 
 func Test01(c echo.Context) error {
 
@@ -31,7 +18,23 @@ func Test01(c echo.Context) error {
 	}
 
 	log.Println("log：", utils.JsonToString(res))
-	NewLog.Println("NewLog：", utils.JsonToString(res))
-	fmt.Println("buf：", buf.String())
+	utils.BufferLog.Println("NewLog：", utils.JsonToString(res))
+	fmt.Println("buf：", utils.LogBuf.String())
+	return c.JSON(http.StatusOK, res)
+}
+
+func Test02(c echo.Context) error {
+
+	var res = models.Response{
+		Msg:   "success",
+		Total: 0,
+		Data:  "test02",
+	}
+
+	// 测试日志 这里打印的路径是common包的需要获取当前路径才行
+	utils.MyLog.Debug("debug: ", " test02： ", utils.JsonToString(res))
+	utils.MyLog.Info("Info: ", " test02： ", utils.JsonToString(res))
+	utils.MyLog.Error("Error: ", " test02： ", utils.JsonToString(res))
+
 	return c.JSON(http.StatusOK, res)
 }

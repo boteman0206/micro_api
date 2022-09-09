@@ -10,8 +10,10 @@ require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.2
 	github.com/labstack/echo/v4 v4.8.0
+	github.com/maybgit/pbgo v0.0.0-20200601050928-85c4ece4a248
+	github.com/spf13/cast v1.5.0
 	github.com/swaggo/echo-swagger v1.3.4
-	google.golang.org/grpc v1.26.0
+	google.golang.org/grpc v1.28.0
 )
 
 require (
@@ -23,7 +25,6 @@ require (
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
-	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

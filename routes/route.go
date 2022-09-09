@@ -21,7 +21,8 @@ func AuthRoute(e *echo.Group) *echo.Group {
 func testGroup(e *echo.Group) {
 
 	g := e.Group("/test")
-	g.GET("/myTest", controller.Test01)
+	g.GET("/test01", controller.Test01)
+	g.GET("/test02", controller.Test02)
 }
 
 func userGroup(e *echo.Group) {
