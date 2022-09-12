@@ -70,7 +70,6 @@ func Test03(c echo.Context) error {
 		res.Msg = err.Error()
 		return c.JSON(http.StatusBadRequest, res)
 	}
-	fmt.Println(c.Get("trace_id"))
 	es.MyLog.Info("Info: ", " test03： ", utils.JsonToString(product.Data))
 	res.Data = product.Data
 	return c.JSON(http.StatusOK, res)
