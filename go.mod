@@ -11,7 +11,6 @@ require (
 	github.com/golang/protobuf v1.4.3
 	github.com/labstack/echo/v4 v4.8.0
 	github.com/maybgit/pbgo v0.0.0-20200601050928-85c4ece4a248
-	github.com/spf13/cast v1.5.0 // indirect
 	github.com/swaggo/echo-swagger v1.3.4
 	google.golang.org/grpc v1.33.2
 )
@@ -25,7 +24,6 @@ require (
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
-	github.com/google/uuid v1.3.0
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -47,4 +45,10 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	xorm.io/builder v0.3.6 // indirect
 	xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb // indirect
+)
+
+require (
+	github.com/pkg/errors v0.9.1 // indirect
+	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
+	google.golang.org/protobuf v1.25.0 // indirect
 )
