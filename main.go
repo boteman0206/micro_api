@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	echoSwagger "github.com/swaggo/echo-swagger"
 	"micro_api/config"
+	"micro_api/micro_common/middle"
 	"micro_api/routes"
 	"micro_api/services"
 	"net/http"
@@ -43,6 +44,8 @@ func main() {
 
 	e := echo.New()
 	e.Use(middleware.BodyLimit("5M"))
+	// 中间件
+	e.Use(middle.TraceIdMiddle)
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 

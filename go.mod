@@ -9,6 +9,7 @@ require (
 	github.com/go-xorm/xorm v0.7.9
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.3
+	github.com/google/uuid v1.1.2
 	github.com/labstack/echo/v4 v4.8.0
 	github.com/maybgit/pbgo v0.0.0-20200601050928-85c4ece4a248
 	github.com/swaggo/echo-swagger v1.3.4
