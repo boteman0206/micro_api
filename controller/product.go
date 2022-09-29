@@ -3,6 +3,7 @@ package controller
 import (
 	"github.com/labstack/echo/v4"
 	"micro_api/config"
+	"micro_api/micro_common/es"
 	"micro_api/micro_proto/pc"
 	"micro_api/models"
 	"net/http"
@@ -34,6 +35,7 @@ func GetProduct(c echo.Context) error {
 	product, err := client.RPC.GetProduct(client.Ctx, &dto)
 	if err != nil {
 		res.Msg = err.Error()
+		es.MyLog.Debug("ctx超时：", err.Error())
 		return c.JSON(http.StatusBadRequest, res)
 	}
 

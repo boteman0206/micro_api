@@ -65,9 +65,11 @@ func Test03(c echo.Context) error {
 		Name: "",
 		Sort: "",
 	}
+	//time.Sleep(6 * time.Second)  校验ctx调用rpc是否超时
 	product, err := client.RPC.TestProduct(client.Ctx, &dto)
 	if err != nil {
 		res.Msg = err.Error()
+		es.MyLog.Debug("ctx超时：", err.Error()) // 这里调用rpc的时候是可以控制超时的
 		return c.JSON(http.StatusBadRequest, res)
 	}
 	es.MyLog.Info("Info: ", " test03： ", utils.JsonToString(product.Data))
